@@ -149,5 +149,10 @@ namespace Week8_Ex1
         {
             this.Close();
         }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBoxDisplay.Refresh();
+        }
     }
 }
