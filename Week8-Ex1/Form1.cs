@@ -145,5 +145,9 @@ namespace Week8_Ex1
             }
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
