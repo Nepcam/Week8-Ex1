@@ -207,6 +207,7 @@ namespace Week8_Ex1
                     else
                     {
                         //Write error message to console window
+                        Console.WriteLine("Please select the *.lgo file type");
                     }
                     //ENDIF
                }
