@@ -163,7 +163,6 @@ namespace Week8_Ex1
             //Declare variables
             StreamReader reader;
             const string FILTER = "Text Files|*.txt|All Files|*.*";
-            string objectType;
             string command;
             Graphics paper = pictureBoxDisplay.CreateGraphics();
 
