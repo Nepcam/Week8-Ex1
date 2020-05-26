@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Week8_Ex1
 {
     public partial class Form1 : Form
     {
+        // Cameron Nepe - Student ID: 1262199
+
         //Direction values
         const int NORTH = 0;
         const int EAST = 90;
@@ -153,6 +156,67 @@ namespace Week8_Ex1
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pictureBoxDisplay.Refresh();
+        }
+
+        private void logoProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Declare variables
+            StreamReader reader;
+            const string FILTER = "Text Files|*.txt|All Files|*.*";
+            string objectType;
+            string command;
+            Graphics paper = pictureBoxDisplay.CreateGraphics();
+
+            //Set filter for dialog control            
+            openFileDialog1.Filter = FILTER;
+            //IF user selects file and clicks on OK button THEN
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //Open the selected file 
+                reader = File.OpenText(openFileDialog1.FileName);
+
+                //WHILE not the end of file
+                while (!reader.EndOfStream)
+                {
+                    //Read line from the file
+                    command = reader.ReadLine();
+                    //IF command is Left THEN
+                    if (command == "Left")
+                    {
+                        //Call Left method 
+                        Left();
+                    }
+                    //ELSE IF command is Right THEN
+                    else if (command == "Right")
+                        {
+                        //Call Right method
+                        Right();
+                    }
+                    //ELSE IF command is Tail THEN
+                    else if (command == "Tail")
+                        {
+                        //Call Tail method
+                        Tail();
+                    }
+                    //ELSE IF command is Step THEN
+                    else if (command == "Step")
+                        {
+                        //Call Step method
+                        Step(paper);
+                    }
+                    //ELSE
+                    else
+                    {
+                        //Write error message to console window
+                    }
+                    //ENDIF
+               }
+                //ENDWHILE
+                //Close the file
+                reader.Close();
+
+            } //ENDIF
+
         }
     }
 }
